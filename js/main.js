@@ -41,6 +41,48 @@
 
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  const calculator = document.getElementById("area-calculator");
+  if (calculator) {
+    const exactOutput = document.getElementById("exact-area");
+    const recommendedOutput = document.getElementById("recommended-area");
+    const sendButton = document.getElementById("send-calculation");
+    const numberFormatter = new Intl.NumberFormat("es-ES", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+
+    const calculateArea = () => {
+      const length = Number.parseFloat(calculator.elements.namedItem("length").value) || 0;
+      const width = Number.parseFloat(calculator.elements.namedItem("width").value) || 0;
+      const margin = Number.parseFloat(calculator.elements.namedItem("margin").value) || 0;
+      const exactArea = length * width;
+      const recommendedArea = exactArea * (1 + margin / 100);
+
+      exactOutput.value = numberFormatter.format(exactArea);
+      recommendedOutput.value = numberFormatter.format(recommendedArea);
+      sendButton.disabled = exactArea <= 0;
+      return { length, width, margin, exactArea, recommendedArea };
+    };
+
+    calculator.addEventListener("input", calculateArea);
+    calculator.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const result = calculateArea();
+      if (result.exactArea <= 0) return;
+      const message = [
+        "Hola, quiero consultar un pedido de césped natural.",
+        "",
+        `Medidas aproximadas: ${result.length} m × ${result.width} m`,
+        `Superficie exacta: ${numberFormatter.format(result.exactArea)} m²`,
+        `Margen seleccionado: ${result.margin}%`,
+        `Cantidad orientativa: ${numberFormatter.format(result.recommendedArea)} m²`,
+        "",
+        "¿Podéis ayudarme a confirmar la cantidad y preparar un presupuesto?"
+      ].join("\n");
+      window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
+    });
+  }
+
   const viewer = document.querySelector("[data-grass-viewer]");
   const model = viewer?.querySelector("[data-grass-model]");
   const bladeContainer = viewer?.querySelector("[data-grass-blades]");

@@ -19,6 +19,8 @@ python -m http.server 8000
 
 La configuración de contacto está centralizada en `js/config.js`. El formulario no almacena datos: construye un mensaje y abre WhatsApp.
 
+La calculadora de superficie permite introducir largo y ancho, aplicar un margen de recorte y enviar el resultado orientativo por WhatsApp. No calcula precios ni sustituye la revisión final del pedido.
+
 ## Visor 3D
 
 La sección `#visor-3d` incluye una maqueta interactiva ligera creada con CSS 3D y JavaScript, sin librerías externas. Cuando el cliente facilite fotografías, medidas y variedades concretas, puede sustituirse por un modelo GLB/GLTF fotorealista manteniendo la misma sección y sus textos comerciales.

@@ -60,6 +60,7 @@
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
         <a href="#ventajas">Por qué elegirnos</a>
         <a href="#soluciones">Soluciones</a>
+        <a href="#calculadora">Calculadora</a>
         <a href="#visor-3d">Visor 3D</a>
         <a href="#proceso">Cómo funciona</a>
         <a href="#preguntas">Preguntas</a>
@@ -142,6 +143,45 @@
             <a class="text-link js-whatsapp" href="#contacto">Hablar con un asesor <span>→</span></a>
           </article>
         </div>
+      </div>
+    </section>
+
+    <section class="section turf-calculator" id="calculadora">
+      <div class="container calculator-grid">
+        <div class="calculator-copy">
+          <p class="eyebrow eyebrow-light">Calcula sin compromiso</p>
+          <h2>¿Cuánto césped <span>necesitas?</span></h2>
+          <p>Introduce las medidas aproximadas de una zona rectangular. Te recomendamos añadir un pequeño margen para recortes y ajustes durante la instalación.</p>
+          <div class="calculator-benefits">
+            <span><b>01</b>Cálculo instantáneo</span>
+            <span><b>02</b>Margen configurable</span>
+            <span><b>03</b>Consulta por WhatsApp</span>
+          </div>
+        </div>
+
+        <form class="calculator-card" id="area-calculator">
+          <div class="calculator-title">
+            <div><span>Paso 1 de 1</span><strong>Medidas de tu zona</strong></div>
+            <svg aria-hidden="true" viewBox="0 0 48 48"><path d="M8 36V12h32v24H8Zm0-16h6m-6 8h6m26-8h-6m6 8h-6M20 12v6m8-6v6m-8 18v-6m8 6v-6"/></svg>
+          </div>
+          <div class="calculator-fields">
+            <label>Largo de la zona <span><input name="length" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="Ej. 10" required> metros</span></label>
+            <span class="times" aria-hidden="true">×</span>
+            <label>Ancho de la zona <span><input name="width" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="Ej. 6" required> metros</span></label>
+          </div>
+          <fieldset class="margin-options">
+            <legend>Margen para recortes</legend>
+            <label><input type="radio" name="margin" value="5" checked><span><b>5%</b>Zona sencilla</span></label>
+            <label><input type="radio" name="margin" value="10"><span><b>10%</b>Muchos recortes</span></label>
+            <label><input type="radio" name="margin" value="0"><span><b>0%</b>Sin margen</span></label>
+          </fieldset>
+          <div class="calculator-result" aria-live="polite">
+            <div><span>Superficie exacta</span><strong><output id="exact-area">0,00</output> m²</strong></div>
+            <div class="recommended"><span>Cantidad orientativa</span><strong><output id="recommended-area">0,00</output> m²</strong></div>
+          </div>
+          <button class="button button-primary button-full" id="send-calculation" type="submit" disabled>Consultar esta cantidad por WhatsApp <span>→</span></button>
+          <p class="form-note">Puedes repetir el cálculo por cada zona y sumar los resultados. Confirmaremos la cantidad definitiva contigo.</p>
+        </form>
       </div>
     </section>
 
@@ -244,7 +284,7 @@
   <footer class="site-footer">
     <div class="container footer-main">
       <div><a class="brand brand-footer" href="#inicio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 34C12 26 11 17 12 7c8 3 13 9 14 17 2-6 5-10 10-13 0 12-4 20-16 23Z"/></svg></span><span><strong>Césped</strong> Gramma</span></a><p>Césped natural de calidad y atención cercana para transformar tu espacio exterior.</p></div>
-      <div><h3>Navegación</h3><a href="#ventajas">Por qué elegirnos</a><a href="#soluciones">Soluciones</a><a href="#visor-3d">Visor 3D</a><a href="#proceso">Cómo funciona</a><a href="#preguntas">Preguntas frecuentes</a></div>
+      <div><h3>Navegación</h3><a href="#ventajas">Por qué elegirnos</a><a href="#soluciones">Soluciones</a><a href="#calculadora">Calculadora de m²</a><a href="#visor-3d">Visor 3D</a><a href="#proceso">Cómo funciona</a><a href="#preguntas">Preguntas frecuentes</a></div>
       <div><h3>Contacto</h3><a class="js-phone" href="#" data-contact-phone>600 000 000</a><a class="js-whatsapp" href="#">WhatsApp</a><span data-contact-hours>Lun–Vie · 08:00–18:00</span></div>
     </div>
     <div class="container footer-bottom"><span>© <span id="year"></span> Césped Gramma. Todos los derechos reservados.</span><span><a href="aviso-legal.html">Aviso legal y privacidad</a></span></div>
