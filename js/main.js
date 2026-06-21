@@ -46,6 +46,9 @@
     const exactOutput = document.getElementById("exact-area");
     const recommendedOutput = document.getElementById("recommended-area");
     const sendButton = document.getElementById("send-calculation");
+    const selectedProduct = document.getElementById("selected-product");
+    const selectedProductName = document.getElementById("selected-product-name");
+    let productChoice = "";
     const numberFormatter = new Intl.NumberFormat("es-ES", {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2
@@ -72,6 +75,7 @@
       const message = [
         "Hola, quiero consultar un pedido de césped natural.",
         "",
+        `Tipo de proyecto: ${productChoice || "Necesito asesoramiento"}`,
         `Medidas aproximadas: ${result.length} m × ${result.width} m`,
         `Superficie exacta: ${numberFormatter.format(result.exactArea)} m²`,
         `Margen seleccionado: ${result.margin}%`,
@@ -80,6 +84,25 @@
         "¿Podéis ayudarme a confirmar la cantidad y preparar un presupuesto?"
       ].join("\n");
       window.open(whatsappUrl(message), "_blank", "noopener,noreferrer");
+    });
+
+    document.querySelectorAll(".select-product").forEach((button) => {
+      button.addEventListener("click", () => {
+        productChoice = button.dataset.product;
+        selectedProductName.textContent = productChoice;
+        selectedProduct.hidden = false;
+        document.querySelectorAll("[data-product-card]").forEach((card) => {
+          card.classList.toggle("product-selected", card.dataset.productCard === productChoice);
+        });
+        document.getElementById("calculadora").scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    document.getElementById("clear-product")?.addEventListener("click", () => {
+      productChoice = "";
+      selectedProduct.hidden = true;
+      document.querySelectorAll("[data-product-card]").forEach((card) => card.classList.remove("product-selected"));
+      document.getElementById("catalogo").scrollIntoView({ behavior: "smooth" });
     });
   }
 

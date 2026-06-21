@@ -58,8 +58,7 @@
       </button>
 
       <nav class="main-nav" id="main-nav" aria-label="Navegación principal">
-        <a href="#ventajas">Por qué elegirnos</a>
-        <a href="#soluciones">Soluciones</a>
+        <a href="#catalogo">Catálogo</a>
         <a href="#calculadora">Calculadora</a>
         <a href="#visor-3d">Visor 3D</a>
         <a href="#proceso">Cómo funciona</a>
@@ -146,6 +145,74 @@
       </div>
     </section>
 
+    <section class="section shop-catalog" id="catalogo">
+      <div class="container">
+        <div class="section-heading catalog-heading">
+          <div><p class="eyebrow">Elige según tu proyecto</p><h2>Encuentra tu césped <span>ideal.</span></h2></div>
+          <div class="catalog-intro"><p>Selecciona el uso que más se parece al tuyo. Te llevaremos a la calculadora y confirmaremos contigo la variedad disponible más adecuada.</p><span>Catálogo provisional · Pendiente de variedades reales</span></div>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card" data-product-card="Jardín familiar">
+            <div class="product-image product-image-family">
+              <span class="product-badge">Uso residencial</span>
+            </div>
+            <div class="product-body">
+              <p class="product-kicker">Jardines y zonas de ocio</p>
+              <h3>Jardín familiar</h3>
+              <p class="product-description">Una opción equilibrada para espacios donde descansar, jugar y disfrutar al aire libre.</p>
+              <dl class="product-specs">
+                <div><dt>Recomendado para</dt><dd>Uso cotidiano</dd></div>
+                <div><dt>Prioridad</dt><dd>Confort y aspecto</dd></div>
+              </dl>
+              <div class="product-price"><span>Presupuesto</span><strong>A medida</strong><small>según cantidad y destino</small></div>
+              <button class="button button-dark button-full select-product" type="button" data-product="Jardín familiar">Elegir y calcular m² <span>→</span></button>
+            </div>
+          </article>
+
+          <article class="product-card product-card-featured" data-product-card="Uso intensivo">
+            <div class="product-image product-image-resistant">
+              <span class="product-badge">Más consultado</span>
+            </div>
+            <div class="product-body">
+              <p class="product-kicker">Actividad y tránsito frecuente</p>
+              <h3>Uso intensivo</h3>
+              <p class="product-description">Pensado para proyectos que buscan priorizar resistencia y una buena recuperación.</p>
+              <dl class="product-specs">
+                <div><dt>Recomendado para</dt><dd>Tránsito frecuente</dd></div>
+                <div><dt>Prioridad</dt><dd>Resistencia</dd></div>
+              </dl>
+              <div class="product-price"><span>Presupuesto</span><strong>A medida</strong><small>según cantidad y destino</small></div>
+              <button class="button button-primary button-full select-product" type="button" data-product="Uso intensivo">Elegir y calcular m² <span>→</span></button>
+            </div>
+          </article>
+
+          <article class="product-card" data-product-card="Proyecto profesional">
+            <div class="product-image product-image-pro">
+              <span class="product-badge">Profesionales</span>
+            </div>
+            <div class="product-body">
+              <p class="product-kicker">Paisajismo y grandes superficies</p>
+              <h3>Proyecto profesional</h3>
+              <p class="product-description">Atención personalizada para instaladores, comunidades, promociones y paisajistas.</p>
+              <dl class="product-specs">
+                <div><dt>Recomendado para</dt><dd>Grandes proyectos</dd></div>
+                <div><dt>Prioridad</dt><dd>Servicio y volumen</dd></div>
+              </dl>
+              <div class="product-price"><span>Presupuesto</span><strong>Profesional</strong><small>consulta condiciones</small></div>
+              <button class="button button-dark button-full select-product" type="button" data-product="Proyecto profesional">Elegir y calcular m² <span>→</span></button>
+            </div>
+          </article>
+        </div>
+
+        <div class="catalog-assurance">
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 4 4L19 6"/></svg> Te ayudamos a elegir</span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h12v10H3zM15 10h3l3 3v4h-6M7 20a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm10 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/></svg> Entrega según localidad</span>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18Zm-4-9h8M12 8v8"/></svg> Presupuesto sin compromiso</span>
+        </div>
+      </div>
+    </section>
+
     <section class="section turf-calculator" id="calculadora">
       <div class="container calculator-grid">
         <div class="calculator-copy">
@@ -163,6 +230,9 @@
           <div class="calculator-title">
             <div><span>Paso 1 de 1</span><strong>Medidas de tu zona</strong></div>
             <svg aria-hidden="true" viewBox="0 0 48 48"><path d="M8 36V12h32v24H8Zm0-16h6m-6 8h6m26-8h-6m6 8h-6M20 12v6m8-6v6m-8 18v-6m8 6v-6"/></svg>
+          </div>
+          <div class="selected-product" id="selected-product" hidden>
+            <span>Selección</span><strong id="selected-product-name"></strong><button type="button" id="clear-product">Cambiar</button>
           </div>
           <div class="calculator-fields">
             <label>Largo de la zona <span><input name="length" type="number" min="0.1" step="0.1" inputmode="decimal" placeholder="Ej. 10" required> metros</span></label>
@@ -284,7 +354,7 @@
   <footer class="site-footer">
     <div class="container footer-main">
       <div><a class="brand brand-footer" href="#inicio"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M20 34C12 26 11 17 12 7c8 3 13 9 14 17 2-6 5-10 10-13 0 12-4 20-16 23Z"/></svg></span><span><strong>Césped</strong> Gramma</span></a><p>Césped natural de calidad y atención cercana para transformar tu espacio exterior.</p></div>
-      <div><h3>Navegación</h3><a href="#ventajas">Por qué elegirnos</a><a href="#soluciones">Soluciones</a><a href="#calculadora">Calculadora de m²</a><a href="#visor-3d">Visor 3D</a><a href="#proceso">Cómo funciona</a><a href="#preguntas">Preguntas frecuentes</a></div>
+      <div><h3>Navegación</h3><a href="#catalogo">Catálogo</a><a href="#calculadora">Calculadora de m²</a><a href="#visor-3d">Visor 3D</a><a href="#proceso">Cómo funciona</a><a href="#preguntas">Preguntas frecuentes</a></div>
       <div><h3>Contacto</h3><a class="js-phone" href="#" data-contact-phone>600 000 000</a><a class="js-whatsapp" href="#">WhatsApp</a><span data-contact-hours>Lun–Vie · 08:00–18:00</span></div>
     </div>
     <div class="container footer-bottom"><span>© <span id="year"></span> Césped Gramma. Todos los derechos reservados.</span><span><a href="aviso-legal.html">Aviso legal y privacidad</a></span></div>

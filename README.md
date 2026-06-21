@@ -21,6 +21,8 @@ La configuración de contacto está centralizada en `js/config.js`. El formulari
 
 La calculadora de superficie permite introducir largo y ancho, aplicar un margen de recorte y enviar el resultado orientativo por WhatsApp. No calcula precios ni sustituye la revisión final del pedido.
 
+El catálogo comercial usa categorías de proyecto provisionales y está conectado a la calculadora. Antes de publicar con datos definitivos deben sustituirse por las variedades, fotografías, fichas técnicas y condiciones reales facilitadas por el cliente.
+
 ## Visor 3D
 
 La sección `#visor-3d` incluye una maqueta interactiva ligera creada con CSS 3D y JavaScript, sin librerías externas. Cuando el cliente facilite fotografías, medidas y variedades concretas, puede sustituirse por un modelo GLB/GLTF fotorealista manteniendo la misma sección y sus textos comerciales.
